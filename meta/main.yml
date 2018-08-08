@@ -1,0 +1,40 @@
+---
+galaxy_info:
+  author: Luke Short
+  description: Manage detached Tmux sessions with Ansible.
+  issue_tracker_url: https://github.com/ekultails/ansible_role_framework_tmux/issues
+  license: Apache
+  min_ansible_version: 2.6
+  platforms:
+    - name: ArchLinux
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+    - name: EL
+      versions:
+        - all
+    - name: Fedora
+      versions:
+        - all
+    - name: GenericLinux
+      versions:
+        - all
+    - name: opensuse
+      versions:
+        - all
+    - name: SLES
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+  galaxy_tags:
+    - framework
+    - session
+    - shell
+    - screen
+    - tmux
+
+dependencies: []

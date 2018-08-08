@@ -1,0 +1,17 @@
+---
+- name: Creating a detached tmux session
+  shell: "tmux new-session -t {{ tmux_name }} -d"
+  when: tmux_state == "present"
+
+- name: Creating a detached tmux session and executing a command
+  shell: "tmux send-keys -t {{ tmux_name }} '{{ tmux_cmd }}' ENTER"
+  when: (tmux_state == "present") and
+        (tmux_cmd is defined)
+
+- name: Executing a command on an exsisting session
+  shell: "tmux send-keys -t {{ tmux_name }} '{{ tmux_cmd }}' ENTER"
+  when: tmux_state == "execute"
+
+- name: Stopping a tmux session
+  shell: "tmux kill-session -t {{ tmux_name }}"
+  when: tmux_state == "absent"

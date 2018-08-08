@@ -1,0 +1,28 @@
+---
+- hosts: localhost
+  vars:
+    tmux_name: test123
+  tasks:
+    - name: Creating a new Tmux session and running a command
+      include_role:
+        name: ansible_role_framework_tmux
+      vars:
+        tmux_state: present
+        tmux_cmd: echo hello world
+      tags:
+        - tmux_present
+
+    - name: Executing a different command in the Tmux session
+      include_role:
+        name: ansible_role_framework_tmux
+      vars:
+        tmux_state: execute
+        tmux_cmd: echo world hello
+
+    - name: Removing the Tmux session
+      include_role:
+        name: ansible_role_framework_tmux
+      vars:
+        tmux_state: absent
+      tags:
+        - tmux_absent
